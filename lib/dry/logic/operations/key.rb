@@ -12,11 +12,11 @@ module Dry
 
         def self.new(rules, options)
           if options[:evaluator]
-            super
+            super(rules, **options)
           else
             name = options.fetch(:name)
             eval = options.fetch(:evaluator, evaluator(name))
-            super(rules, options.merge(evaluator: eval, path: name))
+            super(rules, **options.merge(evaluator: eval, path: name))
           end
         end
 

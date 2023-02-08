@@ -28,11 +28,11 @@ module Dry
         end
 
         def new(rules, **new_options)
-          self.class.new(*rules, options.merge(new_options))
+          self.class.new(*rules, **options.merge(new_options))
         end
 
         def with(new_options)
-          new(rules, options.merge(new_options))
+          new(rules, **options.merge(new_options))
         end
 
         def to_ast
